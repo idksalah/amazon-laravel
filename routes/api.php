@@ -44,7 +44,7 @@ Route::get('/payment-methods/{userId}', [PaymentMethodController::class, 'index'
 Route::post('/payment-methods', [PaymentMethodController::class, 'store']);
 Route::delete('/payment-methods/{id}', [PaymentMethodController::class, 'destroy']);
 
-// Auth routes (add these at the top)
+
 Route::post('/register', [AuthController::class, 'register']);
 Route::post('/login', [AuthController::class, 'login']);
 Route::middleware('auth:sanctum')->post('/logout', [AuthController::class, 'logout']);
