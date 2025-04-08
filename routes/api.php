@@ -33,22 +33,9 @@ Route::delete('/products/{id}', [ProductController::class, 'destroy']);
 // Category routes
 Route::get('/categories', [CategoryController::class, 'index']);
 Route::get('/categories/{id}', [CategoryController::class, 'show']);
-Route::post('/categories', [CategoryController::class, 'store']);
-Route::put('/categories/{id}', [CategoryController::class, 'update']);
-Route::delete('/categories/{id}', [CategoryController::class, 'destroy']);
-
-// Cart routes
-Route::get('/cart/{userId}', [CartController::class, 'index']);
-Route::post('/cart/add', [CartController::class, 'addToCart']);
-Route::delete('/cart/{id}', [CartController::class, 'removeFromCart']);
-
-// Order routes
-Route::get('/orders/{userId}', [OrderController::class, 'index']);
-Route::post('/orders', [OrderController::class, 'store']);
-Route::put('/orders/{id}/status', [OrderController::class, 'updateStatus']);
 
 // Review routes
-Route::get('/reviews/{productId}', [ReviewController::class, 'index']);
+Route::get('/products/{productId}/reviews', [ReviewController::class, 'index']);
 Route::post('/reviews', [ReviewController::class, 'store']);
 Route::delete('/reviews/{id}', [ReviewController::class, 'destroy']);
 

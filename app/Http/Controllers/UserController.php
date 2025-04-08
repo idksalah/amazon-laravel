@@ -13,7 +13,7 @@ class UserController extends Controller
     {
         try {
             $users = User::all();
-            
+
             if ($users->isEmpty()) {
                 return response()->json([
                     'mensaje' => 'No hay usuarios registrados',
@@ -52,10 +52,10 @@ class UserController extends Controller
                 'role' => 'required|in:cliente,vendedor',
                 'address' => 'nullable|string'
             ]);
-    
+
             $validated['password'] = Hash::make($validated['password']);
             $user = User::create($validated);
-    
+
             return response()->json([
                 'mensaje' => 'Usuario creado exitosamente',
                 'usuario' => [
@@ -78,7 +78,7 @@ class UserController extends Controller
     {
         try {
             $user = User::findOrFail($id);
-            
+
             $validated = $request->validate([
                 'name' => 'string|max:255',
                 'email' => 'email|unique:users,email,'.$id,
@@ -114,7 +114,7 @@ class UserController extends Controller
     {
         $user = User::findOrFail($id);
         $user->delete();
-        
+
         return response()->json([
             'mensaje' => 'Usuario eliminado exitosamente'
         ]);
